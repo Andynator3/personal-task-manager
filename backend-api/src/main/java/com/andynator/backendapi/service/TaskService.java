@@ -20,4 +20,18 @@ public class TaskService {
     public Task createTask(Task task) {
         return taskRepository.save(task);
     }
+
+    public Task completeTask(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tâche introuvable : " + id));
+        task.setCompleted(true);
+        return taskRepository.save(task);
+    }
+
+    public void deleteTask(Long id) {
+        if (!taskRepository.existsById(id)) {
+            throw new RuntimeException("Tâche introuvable : " + id);
+        }
+        taskRepository.deleteById(id);
+    }
 }

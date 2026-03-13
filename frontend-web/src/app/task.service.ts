@@ -19,4 +19,12 @@ export class TaskService {
   createTask(task: Omit<Task, 'id' | 'createdAt'>): Observable<Task> {
     return this.http.post<Task>(this.apiUrl, task);
   }
+
+  completeTask(id: number): Observable<Task> {
+    return this.http.patch<Task>(`${this.apiUrl}/${id}/complete`, {});
+  }
+
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

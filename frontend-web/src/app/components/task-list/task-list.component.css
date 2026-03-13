@@ -46,6 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   transition: box-shadow 0.2s;
   border-left: 4px solid #3498db;
 }
@@ -57,6 +58,10 @@
 .task-card.completed {
   border-left-color: #27ae60;
   opacity: 0.75;
+}
+
+.task-info {
+  flex: 1;
 }
 
 .task-info h3 {
@@ -76,22 +81,47 @@
   color: #aaa;
 }
 
-.badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.3rem 0.7rem;
-  border-radius: 20px;
-  white-space: nowrap;
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-.badge-active {
-  background-color: #ebf5fb;
-  color: #2980b9;
+.btn-complete,
+.btn-delete {
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-.badge-done {
+.btn-complete:hover,
+.btn-delete:hover {
+  transform: translateY(-1px);
+}
+
+.btn-complete {
   background-color: #eafaf1;
   color: #27ae60;
+  font-weight: 600;
+}
+
+.btn-complete:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #fdecea;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.btn-delete:hover {
+  background-color: #e74c3c;
+  color: white;
 }
 
 .empty-message {

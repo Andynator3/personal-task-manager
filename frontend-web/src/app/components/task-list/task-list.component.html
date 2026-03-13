@@ -27,7 +27,14 @@
                 Créée le {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
               </span>
             </div>
-            <span class="badge badge-active">En cours</span>
+            <div class="task-actions">
+              <button class="btn-complete" (click)="completeTask(task)" title="Marquer comme terminée">
+                ✓ Terminer
+              </button>
+              <button class="btn-delete" (click)="deleteTask(task)" title="Supprimer définitivement">
+                🗑 Supprimer
+              </button>
+            </div>
           </li>
         }
       </ul>
@@ -46,7 +53,11 @@
                 <p>{{ task.description }}</p>
               }
             </div>
-            <span class="badge badge-done">Terminée</span>
+            <div class="task-actions">
+              <button class="btn-delete" (click)="deleteTask(task)" title="Supprimer définitivement">
+                🗑 Supprimer
+              </button>
+            </div>
           </li>
         }
       </ul>

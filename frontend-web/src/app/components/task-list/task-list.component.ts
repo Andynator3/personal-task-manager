@@ -40,6 +40,23 @@ export class TaskListComponent implements OnInit {
     this.tasks = [task, ...this.tasks];
   }
 
+  completeTask(task: Task): void {
+    this.taskService.completeTask(task.id!).subscribe({
+      next: (updated) => {
+        const index = this.tasks.findIndex(t => t.id === updated.id);
+        if (index !== -1) this.tasks[index] = updated;
+      }
+    });
+  }
+
+  deleteTask(task: Task): void {
+    this.taskService.deleteTask(task.id!).subscribe({
+      next: () => {
+        this.tasks = this.tasks.filter(t => t.id !== task.id);
+      }
+    });
+  }
+
   get activeTasks(): Task[] {
     return this.tasks.filter(t => !t.completed);
   }
