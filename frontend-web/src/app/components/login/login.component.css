@@ -1,0 +1,10 @@
+/* Bouton spécifique : indigo (connexion) */
+.auth-card button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+}
+
+.auth-card button:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(99,102,241,0.45);
+}

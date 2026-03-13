@@ -1,0 +1,10 @@
+/* Bouton spécifique : vert (inscription) */
+.auth-card button {
+  background: linear-gradient(135deg, var(--success), var(--success-dark));
+  color: white;
+  box-shadow: 0 4px 14px rgba(16,185,129,0.35);
+}
+
+.auth-card button:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(16,185,129,0.45);
+}

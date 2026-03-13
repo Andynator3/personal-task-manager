@@ -1,0 +1,58 @@
+<div class="form-card">
+  <h2>➕ Nouvelle tâche</h2>
+
+  <form (ngSubmit)="onSubmit()" class="form-inline">
+    <div class="form-group field-title">
+      <label for="title">Titre *</label>
+      <input
+        id="title"
+        type="text"
+        [(ngModel)]="title"
+        name="title"
+        placeholder="Titre de la tâche..."
+        required
+      />
+    </div>
+
+    <div class="form-group field-desc">
+      <label for="description">Description</label>
+      <input
+        id="description"
+        type="text"
+        [(ngModel)]="description"
+        name="description"
+        placeholder="Description (optionnelle)"
+      />
+    </div>
+
+    <div class="form-group field-priority">
+      <label for="priority">Priorité</label>
+      <select id="priority" [(ngModel)]="priority" name="priority" [class]="'select-priority priority-' + priority.toLowerCase()">
+        @for (p of priorities; track p.value) {
+          <option [value]="p.value">{{ p.label }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group field-date">
+      <label for="dueDate">Échéance</label>
+      <input
+        id="dueDate"
+        type="date"
+        [(ngModel)]="dueDate"
+        name="dueDate"
+      />
+    </div>
+
+    <div class="form-group field-submit">
+      <label class="label-hidden">\u200E</label>
+      <button type="submit" [disabled]="loading || !title.trim()">
+        {{ loading ? '...' : 'Ajouter' }}
+      </button>
+    </div>
+  </form>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+</div>

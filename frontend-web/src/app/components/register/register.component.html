@@ -1,0 +1,28 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-logo">✨</div>
+    <h2>Créer un compte</h2>
+    <p class="auth-subtitle">Rejoignez-nous et organisez vos tâches</p>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input id="username" type="text" [(ngModel)]="username" name="username" placeholder="Choisissez un identifiant" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input id="password" type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required />
+      </div>
+
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+
+      <button type="submit" [disabled]="loading || !username || !password">
+        {{ loading ? 'Inscription...' : 'S\'inscrire' }}
+      </button>
+    </form>
+
+    <p class="auth-link">Déjà un compte ? <a routerLink="/login">Se connecter</a></p>
+  </div>
+</div>
