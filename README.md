@@ -101,6 +101,7 @@
 Et voici le diagramme Scrum complet du projet — backlog, sprints et livraisons :
 ![alt text](image(2).png)
 ![alt text](image(3).png)
+![alt text](image4.png)
 
 
 **Vélocité Sprint 1 : 17 pts** | **Vélocité Sprint 2 : 15 pts**
