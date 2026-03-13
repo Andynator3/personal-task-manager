@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,6 +31,9 @@ public class Task {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Priority priority = Priority.MOYENNE;
+
+    @Column
+    private LocalDate dueDate;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
