@@ -88,20 +88,16 @@
 
 ## Notre Burn-up Chart
 
-```
-Points
-  32 ┤                                    ●─── (scope total)
-     │
-  17 ┤              ●
-     │             /
-   0 ┤────────────●────────────────────────
-     S0          S1          S2
-```
+![alt text](image.png)
 
 | Sprint | Story Points prévus | Story Points livrés | Cumulé réel |
 |---|---|---|---|
 | Sprint 1 | 17 | 17 | 17 |
 | Sprint 2 | 15 | 15 | 32 |
+
+Et voici le diagramme Scrum complet du projet — backlog, sprints et livraisons :
+![alt text](image(3).png)
+![alt text](image(2).png)
 
 **Vélocité Sprint 1 : 17 pts** | **Vélocité Sprint 2 : 15 pts**
 Backlog restant : 0 pts — toutes les US ont été livrées ✅
