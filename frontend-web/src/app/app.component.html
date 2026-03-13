@@ -2,6 +2,9 @@
   <div class="header-content">
     <h1>📋 Personal Task Manager</h1>
     <span class="subtitle">Organisez votre quotidien</span>
+    <button class="btn-dark-toggle" (click)="toggleDarkMode()" [title]="isDarkMode ? 'Mode clair' : 'Mode sombre'">
+      {{ isDarkMode ? '☀️' : '🌙' }}
+    </button>
     @if (authService.isLoggedIn()) {
       <div class="header-user">
         <span class="username">{{ authService.getUsername() }}</span>

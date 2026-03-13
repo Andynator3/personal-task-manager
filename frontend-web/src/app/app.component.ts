@@ -12,8 +12,21 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   title = 'Personal Task Manager';
+  isDarkMode = false;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {
+    const saved = localStorage.getItem('darkMode');
+    if (saved === 'true') {
+      this.isDarkMode = true;
+      document.body.classList.add('dark');
+    }
+  }
+
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark', this.isDarkMode);
+    localStorage.setItem('darkMode', String(this.isDarkMode));
+  }
 
   logout(): void {
     this.authService.logout();
