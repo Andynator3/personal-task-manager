@@ -8,7 +8,10 @@
 
 | Membre | Rôle Scrum |
 |---|---|
-| Atijja | Product Owner / Dev |
+| TIJJA Abir | Dev |
+| JEANTY Andy | Dev |
+| NIANG Fama| Product Owner |
+| MOUTSI Marthe Elise | Scrum master  |
 
 ---
 
