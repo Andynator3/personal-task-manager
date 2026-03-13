@@ -2,6 +2,12 @@
   <div class="header-content">
     <h1>📋 Personal Task Manager</h1>
     <span class="subtitle">Organisez votre quotidien</span>
+    @if (authService.isLoggedIn()) {
+      <div class="header-user">
+        <span class="username">{{ authService.getUsername() }}</span>
+        <button class="btn-logout" (click)="logout()">Déconnexion</button>
+      </div>
+    }
   </div>
 </header>
 
