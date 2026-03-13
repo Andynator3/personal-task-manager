@@ -1,0 +1,55 @@
+<app-task-form (taskCreated)="onTaskCreated($event)" />
+
+@if (loading) {
+  <div class="loading">Chargement des tâches...</div>
+}
+
+@if (errorMessage) {
+  <div class="error-banner">{{ errorMessage }}</div>
+}
+
+@if (!loading && !errorMessage) {
+  <section class="task-section">
+    <h2>Tâches en cours ({{ activeTasks.length }})</h2>
+
+    @if (activeTasks.length === 0) {
+      <p class="empty-message">Aucune tâche en cours. Ajoutez-en une ci-dessus !</p>
+    } @else {
+      <ul class="task-list">
+        @for (task of activeTasks; track task.id) {
+          <li class="task-card">
+            <div class="task-info">
+              <h3>{{ task.title }}</h3>
+              @if (task.description) {
+                <p>{{ task.description }}</p>
+              }
+              <span class="task-date">
+                Créée le {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
+              </span>
+            </div>
+            <span class="badge badge-active">En cours</span>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+
+  @if (completedTasks.length > 0) {
+    <section class="task-section completed-section">
+      <h2>Tâches terminées ({{ completedTasks.length }})</h2>
+      <ul class="task-list">
+        @for (task of completedTasks; track task.id) {
+          <li class="task-card completed">
+            <div class="task-info">
+              <h3>{{ task.title }}</h3>
+              @if (task.description) {
+                <p>{{ task.description }}</p>
+              }
+            </div>
+            <span class="badge badge-done">Terminée</span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+}
