@@ -64,4 +64,15 @@ export class TaskListComponent implements OnInit {
   get completedTasks(): Task[] {
     return this.tasks.filter(t => t.completed);
   }
+
+  getDueDateStatus(dueDate?: string): 'overdue' | 'today' | 'upcoming' | null {
+    if (!dueDate) return null;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const due = new Date(dueDate);
+    due.setHours(0, 0, 0, 0);
+    if (due < today)  return 'overdue';
+    if (due.getTime() === today.getTime()) return 'today';
+    return 'upcoming';
+  }
 }

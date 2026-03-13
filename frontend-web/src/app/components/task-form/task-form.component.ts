@@ -17,6 +17,7 @@ export class TaskFormComponent {
   title = '';
   description = '';
   priority: Priority = 'MOYENNE';
+  dueDate = '';
   loading = false;
   errorMessage = '';
 
@@ -38,13 +39,15 @@ export class TaskFormComponent {
       title: this.title.trim(),
       description: this.description.trim(),
       completed: false,
-      priority: this.priority
+      priority: this.priority,
+      dueDate: this.dueDate || undefined
     }).subscribe({
       next: (task: Task) => {
         this.taskCreated.emit(task);
         this.title = '';
         this.description = '';
         this.priority = 'MOYENNE';
+        this.dueDate = '';
         this.loading = false;
       },
       error: () => {

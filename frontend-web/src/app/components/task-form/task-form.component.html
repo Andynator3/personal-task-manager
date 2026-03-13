@@ -34,6 +34,16 @@
       </select>
     </div>
 
+    <div class="form-group">
+      <label for="dueDate">Date d'échéance</label>
+      <input
+        id="dueDate"
+        type="date"
+        [(ngModel)]="dueDate"
+        name="dueDate"
+      />
+    </div>
+
     @if (errorMessage) {
       <p class="error">{{ errorMessage }}</p>
     }
