@@ -1,4 +1,4 @@
-# 📋 Personal Task Manager
+#  Personal Task Manager
 
 > Application web de gestion de tâches personnelles — organisez votre quotidien avec priorités, échéances et authentification sécurisée.
 
@@ -181,5 +181,12 @@ ng serve
 | DELETE | `/api/tasks/{id}` | ✅ Bearer | Supprimer une tâche |
 
 ---
+
+### voici les visuels de l'application
+
+![alt text](1.png)
+![alt text](2.png)
+![alt text](3.png)
+![alt text](4.png)
 
 *Projet réalisé dans le cadre du cours TRME909 — Méthodes Agiles & Management d'équipe — Master EISI 2ème année*
