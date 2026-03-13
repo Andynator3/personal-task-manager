@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TaskService } from '../../task.service';
 import { Task } from '../../task.model';
+import type { Priority } from '../../task.model';
 
 @Component({
   selector: 'app-task-form',
@@ -15,8 +16,15 @@ export class TaskFormComponent {
 
   title = '';
   description = '';
+  priority: Priority = 'MOYENNE';
   loading = false;
   errorMessage = '';
+
+  readonly priorities: { value: Priority; label: string }[] = [
+    { value: 'BASSE',   label: 'Basse' },
+    { value: 'MOYENNE', label: 'Moyenne' },
+    { value: 'HAUTE',   label: 'Haute' }
+  ];
 
   constructor(private taskService: TaskService) {}
 
@@ -29,12 +37,14 @@ export class TaskFormComponent {
     this.taskService.createTask({
       title: this.title.trim(),
       description: this.description.trim(),
-      completed: false
+      completed: false,
+      priority: this.priority
     }).subscribe({
-      next: (task) => {
+      next: (task: Task) => {
         this.taskCreated.emit(task);
         this.title = '';
         this.description = '';
+        this.priority = 'MOYENNE';
         this.loading = false;
       },
       error: () => {

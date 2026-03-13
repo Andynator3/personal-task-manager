@@ -27,6 +27,10 @@ public class Task {
     @Column(nullable = false)
     private boolean completed = false;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Priority priority = Priority.MOYENNE;
+
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 }

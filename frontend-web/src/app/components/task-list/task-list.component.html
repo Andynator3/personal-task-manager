@@ -17,9 +17,14 @@
     } @else {
       <ul class="task-list">
         @for (task of activeTasks; track task.id) {
-          <li class="task-card">
+          <li class="task-card" [class]="'task-card priority-border-' + task.priority.toLowerCase()">
             <div class="task-info">
-              <h3>{{ task.title }}</h3>
+              <h3>
+                {{ task.title }}
+                <span [class]="'priority-badge priority-' + task.priority.toLowerCase()">
+                  {{ task.priority }}
+                </span>
+              </h3>
               @if (task.description) {
                 <p>{{ task.description }}</p>
               }

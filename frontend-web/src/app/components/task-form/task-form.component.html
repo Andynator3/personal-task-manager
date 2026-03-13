@@ -25,6 +25,15 @@
       ></textarea>
     </div>
 
+    <div class="form-group">
+      <label for="priority">Priorité</label>
+      <select id="priority" [(ngModel)]="priority" name="priority" [class]="'select-priority priority-' + priority.toLowerCase()">
+        @for (p of priorities; track p.value) {
+          <option [value]="p.value">{{ p.label }}</option>
+        }
+      </select>
+    </div>
+
     @if (errorMessage) {
       <p class="error">{{ errorMessage }}</p>
     }
