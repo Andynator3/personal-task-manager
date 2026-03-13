@@ -1,0 +1,131 @@
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+  font-size: 1.1rem;
+}
+
+.error-banner {
+  background-color: #fdecea;
+  border: 1px solid #e74c3c;
+  color: #c0392b;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.task-section {
+  margin-bottom: 2rem;
+}
+
+.task-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e8ecef;
+  color: #2c3e50;
+}
+
+.completed-section h2 {
+  color: #7f8c8d;
+  border-bottom-color: #bdc3c7;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.task-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: box-shadow 0.2s;
+  border-left: 4px solid #3498db;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.task-card.completed {
+  border-left-color: #27ae60;
+  opacity: 0.75;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #2c3e50;
+}
+
+.task-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.task-date {
+  font-size: 0.78rem;
+  color: #aaa;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-complete,
+.btn-delete {
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-complete:hover,
+.btn-delete:hover {
+  transform: translateY(-1px);
+}
+
+.btn-complete {
+  background-color: #eafaf1;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.btn-complete:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #fdecea;
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.btn-delete:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.empty-message {
+  color: #aaa;
+  font-style: italic;
+  padding: 1rem 0;
+}
