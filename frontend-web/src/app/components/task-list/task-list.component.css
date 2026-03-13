@@ -170,3 +170,52 @@
   font-style: italic;
   padding: 1rem 0;
 }
+
+/* ── Barre de filtres ── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555;
+  margin-right: 0.2rem;
+}
+
+.filter-bar button {
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  color: #555;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: auto;
+  margin-top: 0;
+}
+
+.filter-bar button:hover  { border-color: #aaa; background: #ececec; }
+.filter-bar button.active { background: #2c3e50; color: white; border-color: #2c3e50; }
+
+.filter-bar button.filter-basse.active   { background: #27ae60; border-color: #27ae60; }
+.filter-bar button.filter-moyenne.active { background: #e67e22; border-color: #e67e22; }
+.filter-bar button.filter-haute.active   { background: #e74c3c; border-color: #e74c3c; }
+.filter-bar button.filter-overdue.active  { background: #e74c3c; border-color: #e74c3c; }
+.filter-bar button.filter-today.active    { background: #e67e22; border-color: #e67e22; }
+.filter-bar button.filter-upcoming.active { background: #2980b9; border-color: #2980b9; }

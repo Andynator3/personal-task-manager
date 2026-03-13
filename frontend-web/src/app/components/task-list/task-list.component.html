@@ -1,5 +1,22 @@
 <app-task-form (taskCreated)="onTaskCreated($event)" />
 
+<div class="filter-bar">
+  <div class="filter-group">
+    <span class="filter-label">Priorité :</span>
+    <button [class.active]="filterPriority === 'ALL'"    (click)="filterPriority = 'ALL'">Toutes</button>
+    <button [class.active]="filterPriority === 'BASSE'"  (click)="filterPriority = 'BASSE'"  class="filter-basse">Basse</button>
+    <button [class.active]="filterPriority === 'MOYENNE'" (click)="filterPriority = 'MOYENNE'" class="filter-moyenne">Moyenne</button>
+    <button [class.active]="filterPriority === 'HAUTE'"  (click)="filterPriority = 'HAUTE'"  class="filter-haute">Haute</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label">Échéance :</span>
+    <button [class.active]="filterDate === 'ALL'"      (click)="filterDate = 'ALL'">Toutes</button>
+    <button [class.active]="filterDate === 'overdue'"  (click)="filterDate = 'overdue'"  class="filter-overdue">En retard</button>
+    <button [class.active]="filterDate === 'today'"    (click)="filterDate = 'today'"    class="filter-today">Aujourd'hui</button>
+    <button [class.active]="filterDate === 'upcoming'" (click)="filterDate = 'upcoming'" class="filter-upcoming">À venir</button>
+  </div>
+</div>
+
 @if (loading) {
   <div class="loading">Chargement des tâches...</div>
 }

@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../../task.service';
 import { Task } from '../../task.model';
+import type { Priority } from '../../task.model';
 import { TaskFormComponent } from '../task-form/task-form.component';
+
+type DateFilter = 'ALL' | 'overdue' | 'today' | 'upcoming';
 
 @Component({
   selector: 'app-task-list',
@@ -15,6 +18,9 @@ export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
   loading = true;
   errorMessage = '';
+
+  filterPriority: Priority | 'ALL' = 'ALL';
+  filterDate: DateFilter = 'ALL';
 
   constructor(private taskService: TaskService) {}
 
@@ -58,7 +64,12 @@ export class TaskListComponent implements OnInit {
   }
 
   get activeTasks(): Task[] {
-    return this.tasks.filter(t => !t.completed);
+    return this.tasks.filter(t => {
+      if (t.completed) return false;
+      if (this.filterPriority !== 'ALL' && t.priority !== this.filterPriority) return false;
+      if (this.filterDate !== 'ALL' && this.getDueDateStatus(t.dueDate) !== this.filterDate) return false;
+      return true;
+    });
   }
 
   get completedTasks(): Task[] {
