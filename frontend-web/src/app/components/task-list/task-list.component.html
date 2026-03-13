@@ -3,10 +3,10 @@
 <div class="filter-bar">
   <div class="filter-group">
     <span class="filter-label">Priorité :</span>
-    <button [class.active]="filterPriority === 'ALL'"    (click)="filterPriority = 'ALL'">Toutes</button>
-    <button [class.active]="filterPriority === 'BASSE'"  (click)="filterPriority = 'BASSE'"  class="filter-basse">Basse</button>
+    <button [class.active]="filterPriority === 'ALL'"     (click)="filterPriority = 'ALL'">Toutes</button>
+    <button [class.active]="filterPriority === 'BASSE'"   (click)="filterPriority = 'BASSE'"   class="filter-basse">Basse</button>
     <button [class.active]="filterPriority === 'MOYENNE'" (click)="filterPriority = 'MOYENNE'" class="filter-moyenne">Moyenne</button>
-    <button [class.active]="filterPriority === 'HAUTE'"  (click)="filterPriority = 'HAUTE'"  class="filter-haute">Haute</button>
+    <button [class.active]="filterPriority === 'HAUTE'"   (click)="filterPriority = 'HAUTE'"   class="filter-haute">Haute</button>
   </div>
   <div class="filter-group">
     <span class="filter-label">Échéance :</span>
@@ -27,10 +27,16 @@
 
 @if (!loading && !errorMessage) {
   <section class="task-section">
-    <h2>Tâches en cours ({{ activeTasks.length }})</h2>
+    <div class="section-header">
+      <h2>Tâches en cours</h2>
+      <span class="section-count">{{ activeTasks.length }}</span>
+    </div>
 
     @if (activeTasks.length === 0) {
-      <p class="empty-message">Aucune tâche en cours. Ajoutez-en une ci-dessus !</p>
+      <div class="empty-state">
+        <div class="empty-icon">✅</div>
+        <p>Aucune tâche en cours. Ajoutez-en une ci-dessus !</p>
+      </div>
     } @else {
       <ul class="task-list">
         @for (task of activeTasks; track task.id) {
@@ -61,7 +67,7 @@
                 ✓ Terminer
               </button>
               <button class="btn-delete" (click)="deleteTask(task)" title="Supprimer définitivement">
-                🗑 Supprimer
+                🗑
               </button>
             </div>
           </li>
@@ -72,7 +78,10 @@
 
   @if (completedTasks.length > 0) {
     <section class="task-section completed-section">
-      <h2>Tâches terminées ({{ completedTasks.length }})</h2>
+      <div class="section-header">
+        <h2>Tâches terminées</h2>
+        <span class="section-count">{{ completedTasks.length }}</span>
+      </div>
       <ul class="task-list">
         @for (task of completedTasks; track task.id) {
           <li class="task-card completed">
@@ -84,7 +93,7 @@
             </div>
             <div class="task-actions">
               <button class="btn-delete" (click)="deleteTask(task)" title="Supprimer définitivement">
-                🗑 Supprimer
+                🗑
               </button>
             </div>
           </li>
